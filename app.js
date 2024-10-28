@@ -45,8 +45,8 @@ function drawShape(shape, x1, y1, x2, y2){
         const radius = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
         ctx.arc(x1, y1, radius, 0, 2 * Math.PI);
     }
-    ctx.stroke();
-}
+    ctx.stroke(); 
+};
 // Add Color Selection and Canvas Clearing
 colorPicker.addEventListener('input', () => { //updates color when selected
     ctx.strokeStyle = colorPicker.value;
