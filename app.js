@@ -31,7 +31,7 @@ canvas.addEventListener('mouseup', (event) =>{ // stops drawing mouse up
 
 //Task 3: Implement Shape Drawing Logic
 function drawShape(shape, x1, y1, x2, y2){
-    ctx.beginpath();
+    ctx.beginPath();
     ctx.strokeStyle= colorPicker.value;
 
     if(shape === 'line'){ //line 
@@ -48,3 +48,10 @@ function drawShape(shape, x1, y1, x2, y2){
     ctx.stroke();
 }
 // Add Color Selection and Canvas Clearing
+colorPicker.addEventListener('input', () => { //updates color when selected
+    ctx.strokeStyle = colorPicker.value;
+});
+const clearButton = document.getElementById('clearCanvas'); //clear button
+clearButton.addEventListener('click', () => {
+    ctx.clearRect(0,0, canvas.width, canvas.height);
+});
