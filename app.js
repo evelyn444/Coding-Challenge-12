@@ -1,6 +1,6 @@
 // Task 2: Configure the JavaScript for Drawing Context
 const canvas = document.getElementById('drawingCanvas'); //canvas set up
-const context = canvas.getContext('2d'); // context set up
+const ctx = canvas.getContext('2d'); // context set up
 
 let isDrawing = false;
 let startX, startY;
@@ -31,19 +31,20 @@ canvas.addEventListener('mouseup', (event) =>{ // stops drawing mouse up
 
 //Task 3: Implement Shape Drawing Logic
 function drawShape(shape, x1, y1, x2, y2){
-    context.beginpath();
-    context.strokeStyle= colorPicker.value;
+    ctx.beginpath();
+    ctx.strokeStyle= colorPicker.value;
 
     if(shape === 'line'){ //line 
-        context.moveTo (x1,y1);
-        context.lineTo (x2,y2);
+        ctx.moveTo (x1,y1);
+        ctx.lineTo (x2,y2);
     } else if (shape === 'rectangle'){ //rectangle
         const width = x2 - x1;
         const height = y2 - y1;
-        context.rect(x1, y1, width, height);
+        ctx.rect(x1, y1, width, height);
     } else if (shape === 'circle'){ // circle
         const radius = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
-        context.arc(x1, y1, radius, 0, 2 * Math.PI);
+        ctx.arc(x1, y1, radius, 0, 2 * Math.PI);
     }
-    context.stroke();
+    ctx.stroke();
 }
+// Add Color Selection and Canvas Clearing
